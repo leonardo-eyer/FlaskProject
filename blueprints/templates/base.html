@@ -24,10 +24,13 @@
 
         <div class="collapse navbar-collapse" id="navbar">
             <div class="navbar-nav">
-                <a class="nav-item nav-link" id="login" href="/auth/login">login</a>
-                <a class="nav-item nav-link" id="signup" href="/auth/signup">signup</a>
-                <a class="nav-item nav-link" id="logout" href="/auth/logout">logout</a>
-                <a class="nav-item nav-link" id="home" href="/">home</a>
+                {% if user.is_authenticated %}
+                    <a class="nav-item nav-link" id="home" href="/">home</a>
+                    <a class="nav-item nav-link" id="logout" href="/auth/logout">logout</a>
+                {% else %}
+                    <a class="nav-item nav-link" id="signup" href="/auth/signup">signup</a>
+                    <a class="nav-item nav-link" id="login" href="/auth/login">login</a>
+                {% endif %}
             </div>
         </div>
     </nav>
